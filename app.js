@@ -1,4 +1,4 @@
-et transactions = JSON.parse(
+let transactions = JSON.parse(
   localStorage.getItem("transactions") || "[]"
 );
 
