@@ -1,74 +1,69 @@
 
-* {
-  box-sizing: border-box;
+let transactions = JSON.parse(
+  localStorage.getItem("transactions") || "[]"
+);
+
+const form = document.getElementById("transaction-form");
+const list = document.getElementById("transactions");
+
+function render() {
+  const income = transactions
+    .filter(t => t.type === "income")
+    .reduce((sum, t) => sum + t.amount, 0);
+
+  const expenses = transactions
+    .filter(t => t.type === "expense")
+    .reduce((sum, t) => sum + t.amount, 0);
+
+  document.getElementById("income").textContent =
+    "₩" + income.toLocaleString();
+
+  document.getElementById("expenses").textContent =
+    "₩" + expenses.toLocaleString();
+
+  document.getElementById("balance").textContent =
+    "₩" + (income - expenses).toLocaleString();
+
+  list.innerHTML = "";
+
+  transactions.forEach((t, index) => {
+    const item = document.createElement("li");
+    item.textContent =
+      `${t.description}: ${t.type === "income" ? "+" : "-"}₩${t.amount.toLocaleString()} `;
+
+    const remove = document.createElement("button");
+    remove.textContent = "Delete";
+    remove.style.width = "auto";
+
+    remove.onclick = () => {
+      transactions.splice(index, 1);
+      save();
+    };
+
+    item.appendChild(remove);
+    list.appendChild(item);
+  });
 }
 
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f0f4ff;
-  color: #1a2540;
+function save() {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+  render();
 }
 
-header {
-  background: #1a2540;
-  color: white;
-  padding: 28px 16px;
-  text-align: center;
-}
+form.addEventListener("submit", event => {
+  event.preventDefault();
 
-main {
-  max-width: 900px;
-  margin: 25px auto;
-  padding: 0 16px;
-}
+  const description =
+    document.getElementById("description").value.trim();
+  const amount =
+    Number(document.getElementById("amount").value);
+  const type = document.getElementById("type").value;
 
-.summary {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 15px;
-  margin-bottom: 20px;
-}
+  if (!description || amount <= 0) return;
 
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 18px;
-  box-shadow: 0 3px 12px #00000010;
-}
+  transactions.push({ description, amount, type });
+  save();
+  form.reset();
+});
 
-.summary .card p {
-  color: #1a56db;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-input, select, button {
-  width: 100%;
-  padding: 12px;
-  margin: 6px 0;
-  border: 1px solid #c8d4f0;
-  border-radius: 7px;
-}
-
-button {
-  background: #1a56db;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #123fa8;
-}
-
-li {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-footer {
-  text-align: center;
-  padding: 20px;
-}
+render();
