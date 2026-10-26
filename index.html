@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team 4 - Student Budget Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>💰 Student Budget Tracker</h1>
+    <p>Manage your money, one step at a time.</p>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div class="card">
+        <h3>Total Balance</h3>
+        <p id="balance">₩0</p>
+      </div>
+      <div class="card">
+        <h3>Income</h3>
+        <p id="income">₩0</p>
+      </div>
+      <div class="card">
+        <h3>Expenses</h3>
+        <p id="expenses">₩0</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Add Transaction</h2>
+      <form id="transaction-form">
+        <input id="description" placeholder="Description" required>
+        <input id="amount" type="number" min="1" placeholder="Amount (KRW)" required>
+        <select id="type">
+          <option value="income">Income</option>
+          <option value="expense">Expense</option>
+        </select>
+        <button type="submit">Add Transaction</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Transaction History</h2>
+      <ul id="transactions"></ul>
+    </section>
+  </main>
+
+  <footer>Team 4 · Gachon University · Computer Engineering</footer>
+  <script src="app.js"></script>
+</body>
+</html>
