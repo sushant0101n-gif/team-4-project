@@ -43,7 +43,10 @@ function render() {
     : 0;
 
   progress.value = Math.min(percentage, 100);
-
+progress.setAttribute(
+    "aria-valuetext",
+    `${Math.round(percentage)}% of monthly budget used`
+);
   const message = document.getElementById("budget-message");
 
   if (monthlyBudget === 0) {
