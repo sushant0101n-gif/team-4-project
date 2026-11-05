@@ -6,29 +6,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Team 4 - Student Budget Tracker</title>
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">
-  Skip to main content
+    Skip to main content
   </a>
+
   <header>
     <h1>💰 Student Budget Tracker</h1>
     <p>Manage your money, one step at a time.</p>
   </header>
 
-  <main>
-    <main id="main-content" tabindex="-1">
-    <section class="summary">
+  <main id="main-content" tabindex="-1">
+    <section class="summary" aria-label="Budget summary">
       <div class="card">
-        <h3>Total Balance</h3>
+        <h2>Total Balance</h2>
         <p id="balance">₩0</p>
       </div>
       <div class="card">
-        <h3>Income</h3>
+        <h2>Income</h2>
         <p id="income">₩0</p>
       </div>
       <div class="card">
-        <h3>Expenses</h3>
+        <h2>Expenses</h2>
         <p id="expenses">₩0</p>
       </div>
     </section>
@@ -44,8 +45,12 @@
 
       <p>Monthly budget: <strong id="budget-total">₩0</strong></p>
       <p>Money spent: <strong id="budget-spent">₩0</strong></p>
-      <p id="budget-message">Set a budget to get started.</p>
-      <progress id="budget-progress" value="0" max="100"></progress>
+      <p id="budget-message" role="status" aria-live="polite">
+        Set a budget to get started.
+      </p>
+      <progress id="budget-progress" value="0" max="100"
+        aria-label="Monthly budget used"
+        aria-describedby="budget-message"></progress>
     </section>
 
     <section class="card">
@@ -79,11 +84,13 @@
 
     <section class="card">
       <h2>Transaction History</h2>
-      <ul id="transactions"></ul>
+      <ul id="transactions" aria-live="polite"
+        aria-relevant="additions removals"></ul>
     </section>
   </main>
 
-  <footer>Team 4 · Gachon University · Computer Engineering</footer>
-  <script src="app.js"></script>
+  <footer>
+    Team 4 · Gachon University · Computer Engineering
+  </footer>
 </body>
 </html>
