@@ -22,8 +22,7 @@ body {
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
   background:
-    linear-gradient(135deg, rgba(239, 244, 255, .94), rgba(232, 250, 246, .91)),
-    url("https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=80") center / cover fixed;
+    background: linear-gradient(135deg, #eff4ff, #e8faf6);
 }
 
 header {
@@ -116,7 +115,6 @@ main {
   border-radius: 20px;
   background: #ffffff;
   box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
 }
 
