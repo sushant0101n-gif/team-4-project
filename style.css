@@ -114,7 +114,7 @@ main {
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.85);
   border-radius: 20px;
-  background: rgba(255, 255, 255, .93);
+  background: #ffffff;
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
   transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
