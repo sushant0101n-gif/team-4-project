@@ -21,8 +21,7 @@ body {
   color: var(--ink);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
   line-height: 1.6;
-  background:
-    background: linear-gradient(135deg, #eff4ff, #e8faf6);
+  background: linear-gradient(135deg, #eff4ff, #e8faf6);
 }
 
 header {
