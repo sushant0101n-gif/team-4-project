@@ -14,7 +14,7 @@
   --shadow: 0 8px 28px rgba(30, 48, 90, .06);
 }
 
-body.dark {
+body.dark-mode {
   --bg: #111827;
   --surface: #1e293b;
   --ink: #f1f5f9;
@@ -548,7 +548,7 @@ progress::-moz-progress-bar {
   background: #fff5df;
 }
 
-body.dark #budget-message.warning {
+body.dark-mode #budget-message.warning {
   background: #49371c;
   color: #ffce79;
 }
