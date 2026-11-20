@@ -1016,3 +1016,122 @@ footer p {
     transition: none !important;
   }
 }
+/* Transaction and chart additions */
+
+.transaction-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.transaction-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.transaction-info small {
+  color: var(--muted);
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.transaction-actions button {
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.income-text {
+  color: #0d9b70;
+  font-weight: 700;
+}
+
+.expense-text {
+  color: #e05252;
+  font-weight: 700;
+}
+
+.category-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legend-item span:nth-child(2) {
+  flex: 1;
+}
+
+.monthly-chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  gap: 12px;
+  min-height: 210px;
+  padding: 20px 5px;
+}
+
+.month-column {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  min-width: 0;
+}
+
+.month-column span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.month-bar {
+  width: min(100%, 45px);
+  background: #2563eb;
+  border-radius: 7px 7px 0 0;
+  min-height: 4px;
+}
+
+.month-column small {
+  color: var(--muted);
+}
+
+.cancel-button {
+  margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+  .transaction-item {
+    flex-wrap: wrap;
+  }
+
+  .monthly-chart {
+    gap: 5px;
+  }
+
+  .month-column span {
+    font-size: 9px;
+  }
+}
